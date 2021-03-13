@@ -1,6 +1,6 @@
 class Notes::Update < BrowserAction
   put "/notes/:note_id" do
-    note = NoteQuery.find(note_id)
+    note = NoteQuery.new.user_notes(current_user).find(note_id)
     SaveNote.update(note, params) do |operation, updated_note|
       if operation.saved?
         flash.success = "The record has been updated"
