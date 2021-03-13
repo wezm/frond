@@ -5,4 +5,8 @@ class Note < BaseModel
 
     belongs_to user : User
   end
+
+  def title
+    content.each_line.first { "" }
+  end
 end

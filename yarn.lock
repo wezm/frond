@@ -4585,6 +4585,11 @@ md5@^2.3.0:
     crypt "0.0.2"
     is-buffer "~1.1.6"
 
+mdarea@^2.0.12:
+  version "2.0.12"
+  resolved "https://registry.yarnpkg.com/mdarea/-/mdarea-2.0.12.tgz#da8cb4e7a0357489a324bfa796c87388dc5f031f"
+  integrity sha512-DLXfs+Y2PszcgSiPkuDAxuIk33WymH4cHyndlPG569f9VREVbIhV3pwlhk6BN2XnXTrHM2m1RXsLps/uBOEdKg==
+
 mdn-data@2.0.14:
   version "2.0.14"
   resolved "https://registry.yarnpkg.com/mdn-data/-/mdn-data-2.0.14.tgz#7113fc4281917d63ce29b43446f701e68c25ba50"

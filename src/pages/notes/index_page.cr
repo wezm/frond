@@ -12,7 +12,7 @@ class Notes::IndexPage < MainLayout
     ul do
       notes.each do |note|
         li do
-          link note.content, Notes::Show.with(note)
+          link note.title, Notes::Show.with(note)
         end
       end
     end

@@ -3,6 +3,7 @@
   "private": true,
   "dependencies": {
     "@rails/ujs": "^6.0.0",
+    "mdarea": "^2.0.12",
     "normalize-scss": "^7.0.1",
     "turbolinks": "^5.2.0"
   },

@@ -4,9 +4,11 @@ class Notes::ShowPage < MainLayout
 
   def content
     link "Back to all Notes", Notes::Index
-    h1 "Note with id: #{note.id}"
+
+    h1 note.title
+
     render_actions
-    render_note_fields
+    render_note
   end
 
   def render_actions
@@ -19,16 +21,9 @@ class Notes::ShowPage < MainLayout
     end
   end
 
-  def render_note_fields
-    ul do
-      li do
-        text "content: "
-        strong note.content.to_s
-      end
-      li do
-        text "deleted_at: "
-        strong note.deleted_at.to_s
-      end
+  def render_note
+    div do
+      simple_format note.content
     end
   end
 end

@@ -7,8 +7,14 @@ require("@rails/ujs").start();
 // Turbolinks is optional. Learn more: https://github.com/turbolinks/turbolinks/
 require("turbolinks").start();
 
+// require("mdarea");
+import MarkdownArea, { EditorOptions } from 'mdarea';
+
 // If using Turbolinks, you can attach events to page load like this:
-//
-// document.addEventListener("turbolinks:load", function() {
-//   ...
-// })
+
+document.addEventListener("turbolinks:load", function() {
+  const options = { keyMap: { inline: [] } }
+  document.querySelectorAll('textarea.note-editor').forEach(function(textarea) {
+    const editor = new MarkdownArea(textarea, options);
+  });
+});
