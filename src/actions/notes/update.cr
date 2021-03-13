@@ -1,0 +1,14 @@
+class Notes::Update < BrowserAction
+  put "/notes/:note_id" do
+    note = NoteQuery.find(note_id)
+    SaveNote.update(note, params) do |operation, updated_note|
+      if operation.saved?
+        flash.success = "The record has been updated"
+        redirect Show.with(updated_note.id)
+      else
+        flash.failure = "It looks like the form is not valid"
+        html EditPage, operation: operation, note: updated_note
+      end
+    end
+  end
+end
