@@ -7,6 +7,14 @@ class Note < BaseModel
   end
 
   def title
-    content.each_line.first { "" }
+    NoteContent.new(content).title
+  end
+
+  def sub_title
+    NoteContent.new(content).sub_title
+  end
+
+  def word_count : UInt32
+    TextStats.new(content).word_count
   end
 end

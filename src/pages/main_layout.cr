@@ -31,15 +31,20 @@ abstract class MainLayout
 
       body do
         mount Shared::FlashMessages, context.flash
-        render_signed_in_user
-        content
+        render_header
+        div class: "wrapper" do
+          content
+        end
       end
     end
   end
 
-  private def render_signed_in_user
-    text current_user.email
-    text " - "
-    link "Sign out", to: SignIns::Delete, flow_id: "sign-out-button"
+  private def render_header
+    header class: "header" do
+      link "🌴 Frond", to: Home::Index
+      text current_user.email
+      text " - "
+      link "Sign out", to: SignIns::Delete, flow_id: "sign-out-button"
+    end
   end
 end

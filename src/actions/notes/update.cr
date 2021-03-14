@@ -7,7 +7,8 @@ class Notes::Update < BrowserAction
         redirect Show.with(updated_note.id)
       else
         flash.failure = "It looks like the form is not valid"
-        html EditPage, operation: operation, note: updated_note
+        notes = NoteQuery.new.user_notes(current_user)
+        html EditPage, operation: operation, note: updated_note, notes: notes
       end
     end
   end

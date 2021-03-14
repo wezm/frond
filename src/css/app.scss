@@ -23,8 +23,8 @@ body {
     Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
     sans-serif;
   margin: 0 auto;
-  max-width: 800px;
-  padding: 20px 40px;
+  // max-width: 800px;
+  // padding: 20px 40px;
 }
 
 label, input {
@@ -65,7 +65,147 @@ textarea {
   padding: 6px 9px;
 }
 
+.header {
+  padding: 0.25em 0.5em;
+  border-bottom: 1px solid #ccc;
+}
+
+.note-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.note-list-item {
+  border-bottom: 1px solid #ccc;
+}
+
+.note-list-item a {
+  display: block;
+  padding: 0.5em;
+  text-decoration: none;
+  color: currentColor;
+}
+
+.note-list-item strong {
+  display: block;
+  margin-bottom: 0.5em;
+}
+
+.note-list-item-active {
+  background-color: #ddd;
+}
+
+.note-sub-title {
+  display: block;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
 .note-editor {
   max-width: initial;
   height: 70vh;
+}
+
+/* Main Note Layout */
+.wrapper {
+  display: flex;
+  flex-flow: row wrap;
+  height: 100vh;
+}
+
+/* We tell all items to be 100% width, via flex-basis */
+.wrapper > * {
+  flex: 1 100%;
+  // align-items: stretch;
+}
+
+.main {
+  padding: 0 0.5em;
+}
+
+.toggle-box {
+  display: none;
+}
+
+.toggle-box + label {
+  cursor: pointer;
+  display: block;
+  font-weight: bold;
+  line-height: 21px;
+  margin-bottom: 5px;
+}
+
+// .toggle-box + label + .toggle-box-content {
+//   // display: none;
+//   position: relative;
+//   left: -320px;
+// }
+
+// .toggle-box:checked + label + .toggle-box-content {
+//   // width: auto;
+//   // display: block;
+//   left: 0px;
+// }
+
+.toggle-box + label:before {
+  background-color: #4F5150;
+  border-radius: 10px;
+  color: #FFFFFF;
+  content: "+";
+  display: block;
+  float: left;
+  font-weight: bold;
+  height: 20px;
+  line-height: 20px;
+  margin-right: 5px;
+  text-align: center;
+  width: 20px;
+}
+
+.toggle-box:checked + label:before {
+  content: "\2212";
+}
+
+/* We rely on source order for mobile-first approach
+ * in this case:
+ * 1. header
+ * 2. article
+ * 3. aside 1
+ * 4. aside 2
+ * 5. footer
+ */
+
+/* Medium screens */
+@media all and (min-width: 600px) {
+  /* We tell both sidebars to share a row */
+  .aside {
+    flex: 0 1 auto;
+    width: 320px;
+    transition: width 200ms;
+    overflow-y: auto;
+  }
+  .aside-1 {
+    border-right: 1px solid #ccc;
+  }
+  .aside-2 {
+    border-left: 1px solid #ccc;
+  }
+  .toggle-box-closed { width: 0 }
+  .toggle-box-content {
+    width: 320px;
+  }
+}
+
+/* Large screens */
+@media all and (min-width: 800px) {
+  /* We invert order of first sidebar and main
+   * And tell the main element to take twice as much width as the other two sidebars 
+   */
+  .main { flex: 2 0px; }
+  .aside-1 { order: 1; }
+  .main    { order: 2; }
+  .aside-2 { order: 3; }
+  .footer  { order: 4; }
 }
