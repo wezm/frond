@@ -39,4 +39,14 @@ This is a project built using [Lucky](https://luckyframework.org) in [Crystal].
 
 Lucky uses the [Crystal](https://crystal-lang.org) programming language. You can learn about Lucky from the [Lucky Guides](https://luckyframework.org/guides/getting-started/why-lucky).
 
+Licence
+-------
+
+This project is dual licenced under either of:
+
+- Apache License, Version 2.0 ([LICENSE-APACHE](https://github.com/wezm/frond/blob/master/LICENSE-APACHE))
+- MIT license ([LICENSE-MIT](https://github.com/wezm/frond/blob/master/LICENSE-MIT))
+
+at your option.
+
 [Crystal]: https://crystal-lang.org/
