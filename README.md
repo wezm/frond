@@ -1,8 +1,34 @@
-# frond
+🌴 Frond Markdown Notes
+======================
 
-This is a project written using [Lucky](https://luckyframework.org). Enjoy!
+Frond is a lightweight, web based, self-hosted app for storing Markdown notes.
 
-### Setting up the project
+I created Frond ~~because everyone must build a notes app at least once~~ as replacement for Simplenote after I experienced bugs and flaky behaviour. I switched to Fastmail notes, which work pretty well but they don't have any Markdown features such as Markdown aware editing, or preview. I also tried Standard Notes but the Markdown support overrides the `textarea` meaning all native functionality like spell checking is lost when editing on mobile.
+
+<!-- Insert Screenshot -->
+
+Features
+--------
+
+**What's Included:**
+
+* Markdown editing in a simple `textarea`
+* Markdown preview
+* Usable without JavaScript
+* Full text search (TODO)
+* Super fast and memory efficient native code (written in Crystal)
+* Adorable palm tree emoji favicon
+* Works in `lynx`
+
+**What's not included:**
+
+* User tracking
+* Megabytes of JavaScript
+
+Setting Up the Project
+----------------------
+
+This is a project built using [Lucky](https://luckyframework.org) in [Crystal].
 
 1. [Install required dependencies](https://luckyframework.org/guides/getting-started/installing#install-required-dependencies)
 1. Update database settings in `config/database.cr`
@@ -12,3 +38,5 @@ This is a project written using [Lucky](https://luckyframework.org). Enjoy!
 ### Learning Lucky
 
 Lucky uses the [Crystal](https://crystal-lang.org) programming language. You can learn about Lucky from the [Lucky Guides](https://luckyframework.org/guides/getting-started/why-lucky).
+
+[Crystal]: https://crystal-lang.org/
