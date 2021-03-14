@@ -1,5 +1,5 @@
-🌴 Frond Markdown Notes
-======================
+🌴 Frond Notes
+=============
 
 Frond is a lightweight, web based, self-hosted app for storing Markdown notes.
 
