@@ -26,8 +26,24 @@ Features
 * User tracking
 * Megabytes of JavaScript
 
-Setting Up the Project
-----------------------
+Usage
+-----
+
+### Font
+
+To minimise page weight Frond does not use any web fonts. However it was
+designed using the [Muli font][Muli] (`ttf-muli` in the AUR) and this font is
+specified in the CSS.  Install the font if you would like Frond use it. If
+you'd rather not install it, that's fine — Frond will use your browsers default
+sans-serif font.
+
+Installation and Deployment
+---------------------------
+
+TODO
+
+Local Development
+-----------------
 
 This is a project built using [Lucky](https://luckyframework.org) in [Crystal].
 
@@ -51,3 +67,4 @@ This project is dual licenced under either of:
 at your option.
 
 [Crystal]: https://crystal-lang.org/
+[Muli]: https://www.fontsquirrel.com/fonts/muli
