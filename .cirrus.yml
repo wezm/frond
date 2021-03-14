@@ -1,0 +1,58 @@
+task:
+  name: Test
+  container:
+    image: crystallang/crystal:0.36.1-alpine
+    # cpu: 8 nothing seems to make use of the extra cores
+    additional_containers:
+      - name: postgresql
+        image: postgres:12-alpine
+        port: 5432
+        cpu: 1
+        # memory: 512Mi
+        env:
+          POSTGRES_USER: frond
+          POSTGRES_PASSWORD: cipassword
+  environment:
+    LUCKY_ENV: test
+    LUCKYFLOW_DRIVER_PATH: /usr/bin/chromedriver
+    DATABASE_URL: "postgresql://frond:cipassword@localhost/frond"
+  # TODO: yarn cache?
+  install_script:
+    # npm is only needed for npx
+    - apk --update add postgresql-dev postgresql-client chromium chromium-chromedriver yarn npm
+  node_modules_cache:
+    folder: node_modules
+    reupload_on_changes: false # since there is a fingerprint script
+    fingerprint_script:
+      - echo $CIRRUS_OS
+      - node --version
+      - cat yarn.lock
+    populate_script:
+      - yarn install --frozen-lockfile --no-progress
+  shards_cache:
+    folder: lib
+    reupload_on_changes: false # since there is a fingerprint script
+    fingerprint_script:
+      - echo $CIRRUS_OS
+      - crystal --version
+      - cat shard.lock
+    populate_script:
+      - shards check || shards install
+  # crystal_cache:
+  #   folder:
+  #     - $HOME/.cache/crystal
+  #     - lib
+  #     - lucky_tasks
+  #   fingerprint_script: cat shard.lock
+  format_script:
+    - crystal tool format --check
+  yarn_script:
+    - yarn prod
+  build_tasks_script:
+    - crystal build tasks.cr -o ./lucky_tasks
+  prepare_db_script:
+    - ./lucky_tasks db.create
+    - ./lucky_tasks db.migrate
+    - ./lucky_tasks db.seed.required_data
+  test_script:
+    - crystal spec
