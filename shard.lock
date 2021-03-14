@@ -72,6 +72,10 @@ shards:
     git: https://github.com/luckyframework/lucky_router.git
     version: 0.4.1
 
+  markd:
+    git: https://github.com/icyleaf/markd.git
+    version: 0.3.0
+
   openssl_ext:
     git: https://github.com/spider-gazelle/openssl_ext.git
     version: 2.1.1

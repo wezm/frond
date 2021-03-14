@@ -1,4 +1,6 @@
 class Notes::ShowPage < MainLayout
+  include Page::RenderMarkdown
+
   needs notes : NoteQuery
   needs note : Note
   quick_def page_title, "Note with id: #{note.id}"
@@ -60,7 +62,7 @@ class Notes::ShowPage < MainLayout
 
   def render_note
     div do
-      simple_format note.content
+      raw render_markdown(note.content)
     end
   end
 

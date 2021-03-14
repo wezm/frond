@@ -29,3 +29,7 @@ dependencies:
   jwt:
     github: crystal-community/jwt
     version: ~> 1.5.0
+  markd:
+    github: icyleaf/markd
+    version: ~> 0.3.0
+
