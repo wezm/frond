@@ -2,7 +2,7 @@ task:
   name: Test
   container:
     image: crystallang/crystal:0.36.1-alpine
-    # cpu: 8 nothing seems to make use of the extra cores
+    cpu: 4
     additional_containers:
       - name: postgresql
         image: postgres:12-alpine
