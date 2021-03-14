@@ -9,7 +9,7 @@ class Shared::LayoutHead < BaseComponent
       title "My App - #{@page_title}"
       css_link asset("css/app.css"), data_turbolinks_track: "reload"
       js_link asset("js/app.js"), defer: "true", data_turbolinks_track: "reload"
-      empty_tag "link", rel: "icon", href: %(data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">🌴</text></svg>")
+      empty_tag "link", rel: "icon", href: %(data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">🌴</text></svg>)
       meta name: "turbolinks-cache-control", content: "no-cache"
       csrf_meta_tags
       responsive_meta_tag

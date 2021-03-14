@@ -16,7 +16,8 @@ Features
 * Markdown preview
 * Usable without JavaScript
 * Full text search (TODO)
-* Super fast and memory efficient native code (written in Crystal)
+* Supports multiple users
+* Super fast and memory efficient native code (written in [Crystal])
 * Adorable palm tree emoji favicon
 * Works in `lynx`
 
